@@ -20,7 +20,7 @@ API sederhana yang menggunakan Node.js/Express untuk mengelola dan memanipulasi 
 1. Clone repository-nya:
 ```bash
 git clone <repository-url>
-cd cinemaBookingPlatform
+cd crud-api-express-js
 ```
 
 2. Install dependencies:
