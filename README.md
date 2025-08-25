@@ -1,6 +1,6 @@
 # API CRUD Mahasiswa
 
-API sederhana untuk mengelola dan memanipulasi data mahasiswa, yang mengimplementasikan autentikasi menggunakan JWT.
+API sederhana yang menggunakan Node.js/Express untuk mengelola dan memanipulasi data mahasiswa, yang mengimplementasikan autentikasi menggunakan JWT.
 
 ## Fitur
 
@@ -16,3 +16,34 @@ API sederhana untuk mengelola dan memanipulasi data mahasiswa, yang mengimplemen
 - npm
 
 ### Instalasi
+
+1. Clone repository-nya:
+```bash
+git clone <repository-url>
+cd cinemaBookingPlatform
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Ubah .env.example menjadi .env, kemudian isi seperti contoh dibawah:
+```bash
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=<nama_database_bebas_yang_baru>
+DB_USER=<username_database_anda>
+DB_PASS=<password_database_anda>
+```
+
+4. Inisiasi database-nya:
+```bash
+npx sequelize-cli db:create
+npx sequelize-cli db:migrate:all
+```
+
+5. Start server-nya:
+```bash
+node .
+```
