@@ -47,3 +47,5 @@ npx sequelize-cli db:migrate:all
 ```bash
 node .
 ```
+
+API-nya running di `http://localhost:3000`
