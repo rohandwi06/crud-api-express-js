@@ -1,6 +1,6 @@
-# API CRUD Mahasiswa
+# REST API CRUD Mahasiswa
 
-API sederhana yang menggunakan Node.js/Express untuk mengelola dan memanipulasi data mahasiswa, yang mengimplementasikan autentikasi menggunakan JWT.
+REST API sederhana yang menggunakan Node.js/Express untuk mengelola dan memanipulasi data mahasiswa, yang mengimplementasikan autentikasi menggunakan JWT.
 
 ## Fitur
 
