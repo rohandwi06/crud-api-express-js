@@ -1,6 +1,6 @@
-# API CRUD Mahasiswa
+# REST API CRUD Mahasiswa
 
-API sederhana yang menggunakan Node.js/Express untuk mengelola dan memanipulasi data mahasiswa, yang mengimplementasikan autentikasi menggunakan JWT.
+REST API sederhana menggunakan Node.js/Express untuk mengelola dan memanipulasi data mahasiswa, yang mengimplementasikan autentikasi menggunakan JWT.
 
 ## Fitur
 
@@ -32,9 +32,9 @@ npm install
 ```bash
 DB_HOST=localhost
 DB_PORT=3306
-DB_NAME=<nama_database_bebas_yang_baru>
-DB_USER=<username_database_anda>
-DB_PASS=<password_database_anda>
+DB_NAME=<nama_database>
+DB_USER=<username_database>
+DB_PASS=<password_database>
 ```
 
 4. Inisiasi database-nya:
@@ -49,23 +49,3 @@ node .
 ```
 
 API-nya running di `http://localhost:3000`
-
-## API Endpoints
-
-### Autentikasi
-
-| Method | Endpoint | Deskripsi |
-|--------|----------|-------------|
-| POST | `/api/auth/register` | Register user baru |
-| POST | `/api/auth/login` | Login user |
-
-### Mahasiswa
-
- Method | Endpoint | Deskripsi | Perlu Auth |
-|--------|----------|-------------|---------------|
-| GET | `/api/mahasiswa` | Ambil semua mahasiswa | Ya |
-| POST | `/api/mahasiswa/create` | Tambah mahasiswa baru | Ya |
-| GET | `/api/mahasiswa/search?nama=<nama_mahasiswa>&nim=<nim_mahasiswa>` | Search mahasiswa berdasarkan nama dan nim | Ya |
-| GET | `/api/mahasiswa/:id` | Ambil mahasiswa berdasarkan ID | Ya |
-| PUT | `/api/mahasiswa/:id` | Update mahasiswa berdasarkan ID | Ya |
-| DELETE | `/api/mahasiswa/:id` | Delete mahasiswa berdasarkan ID | Ya |
