@@ -14,6 +14,4 @@ router.route('/:id')
     .put(updateMahasiswa)
     .delete(deleteMahasiswa)
 
-// router.get('/:id', getMahasiswaById)
-
 module.exports = router
