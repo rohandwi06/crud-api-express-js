@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.send('Selamat datang di crud API mahasiswa.')
 })
 
-app.use('/auth', authRoute)
+app.use('/api/auth', authRoute)
 app.use('/api/mahasiswa', mahasiswaRoute)
 
 app.listen(port, async() => {
