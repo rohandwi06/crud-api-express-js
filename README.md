@@ -65,7 +65,7 @@ API-nya running di `http://localhost:3000`
 |--------|----------|-------------|---------------|
 | GET | `/api/mahasiswa` | Ambil semua mahasiswa | Ya |
 | POST | `/api/mahasiswa/create` | Tambah mahasiswa baru | Ya |
-| GET | `/api/mahasiswa/search?nama=<nama_mahasiswa>&nim=<nim_mahasiswa>` | Search mahasiswa berdasarkan nama dan nim | Ya |
+| GET | `/api/mahasiswa/search?nama=&nim=` | Search mahasiswa berdasarkan nama dan nim | Ya |
 | GET | `/api/mahasiswa/:id` | Ambil mahasiswa berdasarkan ID | Ya |
 | PUT | `/api/mahasiswa/:id` | Update mahasiswa berdasarkan ID | Ya |
 | DELETE | `/api/mahasiswa/:id` | Delete mahasiswa berdasarkan ID | Ya |
