@@ -32,9 +32,9 @@ npm install
 ```bash
 DB_HOST=localhost
 DB_PORT=3306
-DB_NAME=<nama_database_bebas_yang_baru>
-DB_USER=<username_database_anda>
-DB_PASS=<password_database_anda>
+DB_NAME=<nama_database>
+DB_USER=<username_database>
+DB_PASS=<password_database>
 ```
 
 4. Inisiasi database-nya:
