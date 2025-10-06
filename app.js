@@ -1,6 +1,6 @@
 require('dotenv').config()
 const express = require('express')
-const {sequelize} = require('./models')
+const {sequelize} = require('./db/models')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 

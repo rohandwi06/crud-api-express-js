@@ -1,4 +1,4 @@
-const {Mahasiswa} = require('../models')
+const {Mahasiswa} = require('../db/models')
 const {Op} = require('sequelize')
 
 //Mendapatkan semua data mahasiswa
