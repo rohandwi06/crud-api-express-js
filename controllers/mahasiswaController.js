@@ -4,39 +4,38 @@ const {Op} = require('sequelize')
 //Mendapatkan semua data mahasiswa
 exports.getAllMahasiswa = async (req, res) => {
     try{
+
         const dataMahasiswa = await Mahasiswa.findAll()
         res.status(200).json({
             message: 'Berhasil mendapatkan data mahasiswa.',
             data: dataMahasiswa
+
         })
+
     } catch(error) {
+
         res.status(500).json({message: error.message})
+
     }
 }
 
 //Mendapatkan data mahasiswa berdasarkan id
 exports.getMahasiswaById = async (req, res) => {
     try {
-        const { id } = req.params; // Lebih singkat pakai destructuring
+        const { id } = req.params
 
-        // 1. Cari mahasiswa berdasarkan Primary Key (ID)
-        const dataMahasiswa = await Mahasiswa.findByPk(id);
-
-        // 2. Cek hasil dari database. Jika null, berarti tidak ditemukan.
+        const dataMahasiswa = await Mahasiswa.findByPk(id)
         if (!dataMahasiswa) {
-            // Kirim status 404 Not Found jika data tidak ada
-            return res.status(404).json({ message: "Mahasiswa tidak ditemukan." });
+            return res.status(404).json({ message: "Mahasiswa tidak ditemukan." })
         }
 
-        // 3. Jika data ditemukan, kirim status 200 OK beserta datanya
         res.status(200).json({
             message: "Data mahasiswa berhasil ditemukan!",
             data: dataMahasiswa,
         });
 
     } catch (error) {
-        // Tangkap jika ada error tak terduga (misal: koneksi db putus)
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message })
     }
 }
 
@@ -57,9 +56,8 @@ exports.searchMahasiswa = async (req, res) => {
     const hasilPencarian = await Mahasiswa.findAll({ where: whereClause })
 
     if (!hasilPencarian) {
-        // Ini cuma buat jaga-jaga kalau hasilPencarian beneran null
         return res.status(200).json({
-        message: 'Hasil pencarian null, aneh nih.',
+        message: 'Hasil pencarian null',
         data: null
         });
     }
@@ -77,21 +75,21 @@ exports.searchMahasiswa = async (req, res) => {
         console.error('Error saat search mahasiswa:', err);
         res.status(500).json({ message: 'Terjadi kesalahan pada server.' })
     }
-};
+}
 
 //Tambah data mahasiswa
 exports.createMahasiswa = async (req, res) => {
     try {
-    const { nama, nim, jurusan, tanggal_lahir, alamat } = req.body;
 
+    const { nama, nim, jurusan, tanggal_lahir, alamat } = req.body
     if (!nama || !nim || !jurusan || !tanggal_lahir || !alamat) {
-        return res.status(400).json({ message: 'Ada data yang kurang' });
+        return res.status(400).json({ message: 'Ada data yang kurang' })
     }
 
     // Cek duplikat NIM
-    const existingMahasiswa = await Mahasiswa.findOne({where: {nim}});
+    const existingMahasiswa = await Mahasiswa.findOne({where: {nim}})
     if (existingMahasiswa) {
-        return res.status(409).json({ message: 'NIM sudah terdaftar' });
+        return res.status(409).json({ message: 'NIM sudah terdaftar' })
     }
 
     const dataMahasiswa = await Mahasiswa.create({
@@ -102,16 +100,16 @@ exports.createMahasiswa = async (req, res) => {
         alamat,
         createdAt: new Date(),
         updatedAt: new Date()
-    });
+    })
 
     res.status(201).json({
         message: 'Data berhasil ditambahkan',
         data: dataMahasiswa
         });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message })
     }
-};
+}
 
 //Update data mahasiswa berdasarkan ID
 exports.updateMahasiswa = async (req, res) => {

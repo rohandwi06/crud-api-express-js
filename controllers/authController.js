@@ -1,8 +1,11 @@
 const {User} = require('../db/models')
 const jwt = require('jsonwebtoken')
 
+
+// REGISTER
 exports.register = async (req, res) => {
     try{
+
     const {username, password} = req.body
     if (!username || !password) return res.status(403).json({message: 'Username dan Password dibutuhkan!'})
 
@@ -16,13 +19,16 @@ exports.register = async (req, res) => {
     res.status(201).json({
         message: 'Berhasil register, silahkan login.'
     })
+
     } catch (error) {
         res.status(500).json({message: error.message})
     }
 }
 
+// LOGIN
 exports.login = async (req, res) => {
     try{
+
     const {username, password} = req.body
     if (!username || !password) return res.status(403).json({message: 'Username dan Password dibutuhkan!'})
 
@@ -44,7 +50,9 @@ exports.login = async (req, res) => {
         message: 'Login berhasil!',
         token: token
     })
+
     } catch (error) {
         res.status(500).json({message: error.message})
+
     }
 }
