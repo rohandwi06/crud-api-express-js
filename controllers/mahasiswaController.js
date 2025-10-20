@@ -13,9 +13,8 @@ exports.getAllMahasiswa = async (req, res) => {
         })
 
     } catch(error) {
-
-        res.status(500).json({message: error.message})
-
+        console.error('Error :', err);
+        res.status(500).json({ message: 'Terjadi kesalahan pada server.' })
     }
 }
 
@@ -35,7 +34,8 @@ exports.getMahasiswaById = async (req, res) => {
         });
 
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        console.error('Error :', err);
+        res.status(500).json({ message: 'Terjadi kesalahan pada server.' })
     }
 }
 
@@ -72,7 +72,7 @@ exports.searchMahasiswa = async (req, res) => {
     })
 
     } catch (err) {
-        console.error('Error saat search mahasiswa:', err);
+        console.error('Error :', err);
         res.status(500).json({ message: 'Terjadi kesalahan pada server.' })
     }
 }
@@ -107,7 +107,8 @@ exports.createMahasiswa = async (req, res) => {
         data: dataMahasiswa
         });
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        console.error('Error :', err);
+        res.status(500).json({ message: 'Terjadi kesalahan pada server.' })
     }
 }
 
@@ -126,7 +127,8 @@ exports.updateMahasiswa = async (req, res) => {
             data: dataMahasiswa
         })
     } catch (error) {
-        res.status(500).json({message: error.message})
+        console.error('Error :', err);
+        res.status(500).json({ message: 'Terjadi kesalahan pada server.' })
     }
 
 }
@@ -140,6 +142,7 @@ exports.deleteMahasiswa = async (req, res) => {
     await dataMahasiswa.destroy()
     res.status(200).json({message: 'Data berhasil dihapus'})
     } catch (error) {
-        res.status(500).json({message: error.message})
+        console.error('Error :', err);
+        res.status(500).json({ message: 'Terjadi kesalahan pada server.' })
     }
 }
